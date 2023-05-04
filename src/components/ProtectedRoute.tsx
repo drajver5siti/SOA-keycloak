@@ -10,7 +10,11 @@ const ProtectedRoute = ({ children }: Props): JSX.Element | null => {
 
     const isLoggedIn = keycloak.authenticated;
 
-    return isLoggedIn ? children : <div>Not logged in!</div>;
+    if (!isLoggedIn) {
+        keycloak.login();
+    }
+
+    return children;
 }
 
 export { ProtectedRoute };

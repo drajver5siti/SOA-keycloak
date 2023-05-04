@@ -2,7 +2,7 @@ import { useKeycloak } from "@react-keycloak/web";
 import { Link } from "react-router-dom";
 
 const Nav = () => {
-    const { keycloak, initialized } = useKeycloak();
+    const { keycloak } = useKeycloak();
 
     return (
         <div>
