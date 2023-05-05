@@ -6,12 +6,17 @@ type Props = {
 
 const ProtectedRoute = ({ children }: Props): JSX.Element | null => {
 
-    const { keycloak } = useKeycloak();
+    const { keycloak, initialized } = useKeycloak();
 
     const isLoggedIn = keycloak.authenticated;
 
+    if (!initialized) {
+        return <div>Loading...</div>
+    }
+
     if (!isLoggedIn) {
-        keycloak.login();
+        keycloak.login()
+        return null;
     }
 
     return children;

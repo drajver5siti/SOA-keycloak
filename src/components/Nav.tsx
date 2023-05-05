@@ -37,7 +37,7 @@ const Nav = () => {
                                         <button
                                             type="button"
                                             className="text-blue-800"
-                                            onClick={() => keycloak.logout()}
+                                            onClick={() => keycloak.logout({ redirectUri: 'http://localhost:3000/' })}
                                         >
                                             Logout ({keycloak.tokenParsed?.preferred_username})
                                         </button>
